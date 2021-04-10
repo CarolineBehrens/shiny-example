@@ -28,7 +28,8 @@ ui <- fluidPage(
 
         # Show a plot of the generated distribution
         mainPanel(
-           plotOutput("distPlot")
+           plotOutput("distPlot"),
+           plotOutput("myPlot")
         )
     )
 )
@@ -49,6 +50,12 @@ server <- function(input, output) {
         # draw the histogram with the specified number of bins
         hist(x, breaks = bins, col = 'darkgray', border = 'white')
     })
+    
+    output$myPlot <- renderImage({
+        filename <- "plot_1.png"
+        list(src = filename)
+    }, deleteFile = FALSE)
+    
 }
 
 # Run the application 
