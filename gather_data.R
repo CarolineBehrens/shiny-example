@@ -36,3 +36,4 @@ x <- pe %>%
                cols = everything()) 
 
 write_rds(x, file = "voting/clean_data/shiny_data.rds")
+
